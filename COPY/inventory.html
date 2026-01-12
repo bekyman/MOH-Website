@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MoH Cafeteria Portal</title>
+    <link rel="stylesheet" href="css/inventory.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <div class="app-container">
+        <header class="header">
+            <div class="header-content">
+                <div class="logo-section">
+                    <div class="logo-icon">MoH<br>ETH</div>
+                    <div>
+                        <h1 id="t-title">የጤና ሚኒስቴር የሰራተኞች ክበብ</h1>
+                        <p id="t-subtitle" class="subtitle">የምግብ አገልግሎት መግቢያ</p>
+                    </div>
+                </div>
+                <button id="lang-toggle" class="btn-secondary">
+                    <i data-lucide="languages"></i>
+                    <span id="lang-label">English</span>
+                </button>
+            </div>
+        </header>
+
+        <main class="main-layout">
+            <div class="menu-column">
+                <div class="user-selector-card">
+                    <div class="user-info">
+                        <i data-lucide="user"></i>
+                        <span id="user-type-display" class="font-bold">የውስጥ ሰራተኛ</span>
+                    </div>
+                    <div class="toggle-group">
+                        <button id="btn-employee" class="toggle-btn active">የውስጥ ሰራተኛ</button>
+                        <button id="btn-visitor" class="toggle-btn">እንግዳ</button>
+                    </div>
+                </div>
+
+                <div class="menu-section">
+                    <h2 class="section-title">
+                        <i data-lucide="clock" class="icon-emerald"></i>
+                        <span id="t-menu">የዛሬ ምግቦች</span>
+                    </h2>
+                    <div id="menu-grid" class="menu-grid">
+                        </div>
+                </div>
+            </div>
+
+            <div class="cart-column">
+                <div class="cart-card">
+                    <div class="cart-header">
+                        <h3 class="cart-title">
+                            <i data-lucide="shopping-cart" class="icon-emerald"></i>
+                            <span id="t-cart">የእርስዎ ጋሪ</span>
+                        </h3>
+                    </div>
+
+                    <div id="cart-items" class="cart-body">
+                        </div>
+
+                    <div id="cart-footer" class="cart-footer hidden">
+                        <div class="total-row">
+                            <span id="t-total" class="total-label">ጠቅላላ ዋጋ</span>
+                            <span id="total-price" class="total-amount">0 ብር</span>
+                        </div>
+                        <div class="info-tag">
+                            <i data-lucide="info" class="icon-emerald" size="14"></i>
+                            <span id="price-policy">ለሰራተኞች ቅናሽ ተደርጓል</span>
+                        </div>
+                        <button id="checkout-btn" class="checkout-btn">
+                            <span id="t-checkout">ትዕዛዝ አጠናቅ</span>
+                            <i data-lucide="chevron-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div id="success-msg" class="success-msg hidden">
+                    <i data-lucide="check-circle"></i>
+                    <p id="t-success">ትዕዛዝዎ በተሳካ ሁኔታ ተልኳል!</p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="inventory.js"></script>
+</body>
+</html>

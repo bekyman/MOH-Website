@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="am">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexus Pay | MoH POS System</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Noto+Sans+Ethiopic:wght@400;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="css/cashier.css">
+</head>
+<body class="h-screen flex flex-col overflow-hidden">
+
+    <header class="h-20 bg-white border-b border-slate-200 px-6 flex items-center justify-between shrink-0 shadow-sm z-30">
+        <div class="flex items-center gap-4">
+            <div class="w-14 h-14 flex items-center justify-center">
+                <svg viewBox="0 0 100 100" class="w-full h-full text-[#0067b8]" fill="currentColor">
+                    <circle cx="50" cy="50" r="45" fill="none" stroke="currentColor" stroke-width="3"/>
+                    <path d="M50 15 C 30 15, 20 40, 20 50 C 20 60, 30 85, 50 85 C 70 85, 80 60, 80 50 C 80 40, 70 15, 50 15 Z" fill="none" stroke="currentColor" stroke-width="2"/>
+                    <path d="M35 35 Q 50 20 65 35 Q 80 50 65 65 Q 50 80 35 65 Q 20 50 35 35" fill="none" stroke="currentColor" stroke-width="2"/>
+                    <path d="M50 25 L 50 75 M 25 50 L 75 50" stroke="currentColor" stroke-width="1.5" opacity="0.6"/>
+                </svg>
+            </div>
+            <div>
+                <h1 class="text-xl font-black text-slate-800 tracking-tight leading-none">Nexus Pay</h1>
+                <p class="text-[10px] font-bold text-blue-600 uppercase tracking-widest mt-1" data-key="system-name">የክፍያ እና የሽያጭ መቆጣጠሪያ</p>
+            </div>
+        </div>
+
+        <div class="flex items-center gap-6">
+            <div class="flex bg-slate-100 p-1 rounded-xl border border-slate-200">
+                <button onclick="setLanguage('am')" id="lang-am" class="px-4 py-1.5 rounded-lg text-xs font-bold transition-all bg-white shadow-sm text-blue-600">አማርኛ</button>
+                <button onclick="setLanguage('en')" id="lang-en" class="px-4 py-1.5 rounded-lg text-xs font-bold transition-all text-slate-500">English</button>
+            </div>
+            
+            <div class="h-8 w-px bg-slate-200"></div>
+            
+            <div class="flex items-center gap-3">
+                <div class="text-right">
+                    <p class="text-[10px] font-bold text-slate-400 uppercase" data-key="role">ካሳሪ</p>
+                    <p class="text-sm font-bold text-slate-700">Abebe K.</p>
+                </div>
+                <div class="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center text-white shadow-lg">
+                    <i data-lucide="user" size="20"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-1 flex overflow-hidden">
+        <section class="flex-1 flex flex-col bg-slate-50 border-r border-slate-200">
+            <div class="px-6 py-4 bg-white border-b border-slate-200 flex items-center justify-between">
+                <div class="flex gap-6">
+                    <button onclick="setCustomerType('visitor')" id="type-visitor" class="pb-2 text-sm font-bold transition-all active-tab" data-key="type-visitor">ለጎብኝ (Visitor)</button>
+                    <button onclick="setCustomerType('employee')" id="type-employee" class="pb-2 text-sm font-bold transition-all text-slate-400" data-key="type-employee">ለጤና ሚኒስቴር ሰራተኛ (MoH Employee)</button>
+                </div>
+                <div class="relative">
+                    <i data-lucide="search" class="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" size="16"></i>
+                    <input type="text" class="pl-10 pr-4 py-2 bg-slate-100 border-none rounded-xl text-sm w-48 focus:ring-2 focus:ring-blue-500" placeholder="Search...">
+                </div>
+            </div>
+
+            <div class="p-6 overflow-y-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 custom-scrollbar">
+                <button onclick="addToOrder('Dabo', 20, 10)" class="group bg-white p-4 rounded-3xl text-left border border-slate-200 hover:border-blue-500 hover:shadow-xl transition-all">
+                    <div class="w-full h-32 bg-slate-50 rounded-2xl mb-4 flex items-center justify-center">
+                        <i data-lucide="utensils" class="text-slate-300 group-hover:scale-110 transition-transform" size="40"></i>
+                    </div>
+                    <h3 class="font-bold text-slate-800" data-key="item-dabo">ዳቦ</h3>
+                    <div class="mt-2">
+                        <p class="text-blue-600 font-black text-lg">20 <span class="text-[10px]">ETB</span></p>
+                        <p class="text-[10px] text-emerald-600 font-bold uppercase mt-1" data-key="sub-price">የሰራተኛ ቅናሽ: 10 ETB</p>
+                    </div>
+                </button>
+
+                <button onclick="addToOrder('Enqulal Firfir', 100, 30)" class="group bg-white p-4 rounded-3xl text-left border border-slate-200 hover:border-blue-500 hover:shadow-xl transition-all">
+                    <div class="w-full h-32 bg-slate-50 rounded-2xl mb-4 flex items-center justify-center">
+                        <i data-lucide="pizza" class="text-slate-300 group-hover:scale-110 transition-transform" size="40"></i>
+                    </div>
+                    <h3 class="font-bold text-slate-800" data-key="item-egg"እንቁላል ፍርፍር></h3>
+                    <div class="mt-2">
+                        <p class="text-blue-600 font-black text-lg">100 <span class="text-[10px]">ETB</span></p>
+                        <p class="text-[10px] text-emerald-600 font-bold uppercase mt-1" data-key="sub-price">የሰራተኛ ቅናሽ: 30 ETB</p>
+                    </div>
+                </button>
+
+                <button onclick="addToOrder('Soft Drink', 45, 30)" class="group bg-white p-4 rounded-3xl text-left border border-slate-200 hover:border-blue-500 hover:shadow-xl transition-all">
+                    <div class="w-full h-32 bg-slate-50 rounded-2xl mb-4 flex items-center justify-center">
+                        <i data-lucide="cup-soda" class="text-slate-300 group-hover:scale-110 transition-transform" size="40"></i>
+                    </div>
+                    <h3 class="font-bold text-slate-800" data-key="item-hot drinks">ሻጸጽ</h3>
+                    <div class="mt-2">
+                        <p class="text-blue-600 font-black text-lg">10 <span class="text-[10px]">ETB</span></p>
+                        <p class="text-[10px] text-emerald-600 font-bold uppercase mt-1" data-key="sub-price">የሰራተኛ ቅናሽ: 5 ETB</p>
+                    </div>
+                </button>
+            </div>
+        </section>
+
+        <section class="w-[420px] bg-white flex flex-col shadow-2xl z-20">
+            <div class="p-6 border-b border-slate-100 flex justify-between items-center">
+                <h2 class="text-lg font-bold text-slate-800 flex items-center gap-2">
+                    <i data-lucide="shopping-cart" class="text-blue-600"></i>
+                    <span data-key="current-order">የአሁኑ ትዕዛዝ</span>
+                </h2>
+                <span id="badge-type" class="px-3 py-1 bg-slate-100 text-slate-600 rounded-full text-[10px] font-black uppercase tracking-wider">Visitor</span>
+            </div>
+
+            <div id="order-list" class="flex-1 overflow-y-auto p-6 space-y-3 custom-scrollbar">
+                <div class="flex flex-col items-center justify-center h-full text-slate-300 opacity-50">
+                    <i data-lucide="package-open" size="64" stroke-width="1"></i>
+                    <p class="mt-4 font-bold" data-key="empty-cart">ምንም የተመረጠ ምርት የለም</p>
+                </div>
+            </div>
+
+            <div class="p-6 bg-slate-50 border-t border-slate-200">
+                <div class="space-y-3 mb-6">
+                    <div class="flex justify-between text-sm">
+                        <span class="text-slate-500 font-medium" data-key="subtotal">ድምር</span>
+                        <span class="font-bold text-slate-700" id="subtotal-val">0.00 ETB</span>
+                    </div>
+                    <div id="subsidy-row" class="hidden flex justify-between text-sm text-emerald-600">
+                        <span class="font-medium" data-key="subsidy-label">የሰራተኛ ድጎማ (Subsidy)</span>
+                        <span class="font-bold" id="subsidy-val">-0.00 ETB</span>
+                    </div>
+                    <div class="flex justify-between items-center pt-3 border-t border-slate-200">
+                        <span class="text-lg font-black text-slate-800" data-key="total">ጠቅላላ ሂሳብ</span>
+                        <span class="text-2xl font-black text-blue-600" id="total-val">0.00 ETB</span>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-3 mb-4">
+                    <button class="flex flex-col items-center justify-center p-3 bg-white border border-slate-200 rounded-2xl hover:border-blue-500 transition-all">
+                        <i data-lucide="smartphone" class="text-slate-400 mb-1" size="20"></i>
+                        <span class="text-[9px] font-black uppercase text-slate-500" data-key="pay-mobile">Mobile</span>
+                    </button>
+                    <button class="flex flex-col items-center justify-center p-3 bg-white border border-slate-200 rounded-2xl hover:border-blue-500 transition-all">
+                        <i data-lucide="banknote" class="text-slate-400 mb-1" size="20"></i>
+                        <span class="text-[9px] font-black uppercase text-slate-500" data-key="pay-cash">Cash</span>
+                    </button>
+                </div>
+
+                <button onclick="completeOrder()" class="w-full py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-2xl font-black text-sm uppercase tracking-widest transition-all shadow-lg shadow-blue-900/20" data-key="btn-pay">
+                    ክፍያ ፈጽም
+                </button>
+            </div>
+        </section>
+    </main>
+
+    <div id="success-modal" class="fixed inset-0 bg-slate-900/70 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-[3rem] max-w-md w-full p-10 text-center shadow-2xl">
+            <div class="w-24 h-24 bg-blue-50 text-blue-600 rounded-full flex items-center justify-center mx-auto mb-6 border-4 border-white shadow-inner">
+                <i data-lucide="check" size="48" stroke-width="3"></i>
+            </div>
+            <h3 class="text-2xl font-black text-slate-800 mb-2" data-key="success-title">ክፍያው ተጠናቋል!</h3>
+            <p class="text-slate-500 mb-8 leading-relaxed" data-key="success-msg">ስለጎበኙን እናመሰግናለን። ደረሰኝዎ በኤስኤምኤስ ተልኳል።</p>
+            <button onclick="closeModal()" class="w-full py-4 bg-slate-900 text-white rounded-2xl font-black text-sm uppercase tracking-widest hover:bg-black transition-all" data-key="btn-back">ተመለስ</button>
+        </div>
+    </div>
+
+    <script src="js/cashier.js"></script>
+
+</body>
+</html>

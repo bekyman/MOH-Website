@@ -1,0 +1,18 @@
+/* Custom Styles and Animations */
+body { 
+    font-family: 'Inter', 'Noto Sans Ethiopic', sans-serif; 
+    background-color: #f8fafc;
+}
+
+.order-card {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.status-pulse {
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: .5; }
+}

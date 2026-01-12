@@ -1,0 +1,23 @@
+body {
+    font-family: 'Inter', 'Noto Sans Ethiopic', sans-serif;
+    background-color: #f1f5f9;
+}
+.ethiopic { 
+    font-family: 'Noto Sans Ethiopic', sans-serif; 
+}
+.glass-card {
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+.custom-scrollbar::-webkit-scrollbar { 
+    width: 5px; 
+}
+.custom-scrollbar::-webkit-scrollbar-thumb { 
+    background: #cbd5e1; 
+    border-radius: 10px; 
+}
+.active-tab { 
+    border-bottom: 3px solid #0067b8; 
+    color: #0067b8; 
+}

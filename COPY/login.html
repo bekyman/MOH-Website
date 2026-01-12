@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="am">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MoH Cafeteria - Secure Access</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Noto+Sans+Ethiopic:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/login.css">
+</head>
+<body class="bg-slate-50 text-slate-900">
+    
+    <div class="min-h-screen flex items-center justify-center p-4 bg-gradient-to-br from-blue-50 to-indigo-100">
+        <div class="max-w-md w-full bg-white rounded-[2.5rem] shadow-2xl p-10 border border-white relative overflow-hidden">
+            
+           <div class="text-center mb-10">
+    <div class="w-24 h-24 bg-white rounded-3xl flex items-center justify-center mx-auto mb-4 shadow-xl shadow-blue-100 p-2">
+        <img src="image.png" alt="MoH Logo" class="w-full h-full object-contain">
+    </div>
+    <h1 class="text-3xl font-black text-slate-800 tracking-tight">MoH Cafeteria</h1>
+</div>
+
+            <form id="login-form" class="space-y-6 form-transition">
+                <p class="text-slate-500 text-center font-medium">Login Portal መግቢያ</p>
+                <div>
+                    <label class="block text-sm font-bold text-slate-700 mb-2 ml-1">Unique Username / ID</label>
+                    <input id="userId" type="text" required 
+                        class="w-full px-6 py-4 bg-slate-50 border border-slate-200 rounded-2xl focus:ring-4 focus:ring-blue-500/10 focus:border-blue-500 outline-none transition-all font-medium" 
+                        placeholder="EMP-xxx ወይም CUST-xxx">
+                </div>
+
+                <div>
+                    <label class="block text-sm font-bold text-slate-700 mb-2 ml-1">Password</label>
+                    <input id="password" type="password" required 
+                        class="w-full px-6 py-4 bg-slate-50 border border-slate-200 rounded-2xl focus:ring-4 focus:ring-blue-500/10 focus:border-blue-500 outline-none transition-all" 
+                        placeholder="••••••••">
+                </div>
+
+                <div class="flex items-center justify-between">
+                    <label class="flex items-center gap-2 cursor-pointer group">
+                        <input type="checkbox" class="w-5 h-5 rounded-lg border-slate-300 text-blue-600 focus:ring-0">
+                        <span class="text-sm text-slate-600 group-hover:text-slate-900">Remember me</span>
+                    </label>
+                    <button type="button" onclick="toggleForms()" class="text-sm font-bold text-blue-600 hover:text-blue-700">Forgot password?</button>
+                </div>
+
+                <button type="submit" class="w-full py-4 bg-slate-900 hover:bg-blue-600 text-white rounded-2xl font-black shadow-lg transition-all transform active:scale-[0.98] flex items-center justify-center gap-3">
+                    LOGIN <i data-lucide="arrow-right" size="20"></i>
+                </button>
+            </form>
+
+            <form id="reset-form" class="space-y-6 hidden form-transition">
+                <div class="text-center">
+                    <h2 class="text-xl font-bold text-slate-800">የይለፍ ቃል መቀየር</h2>
+                    <p class="text-sm text-slate-500 mt-1">መለያዎን (ID) ያስገቡ</p>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-bold text-slate-700 mb-2 ml-1">Your ID</label>
+                    <input id="reset-userId" type="text" required 
+                        class="w-full px-6 py-4 bg-slate-50 border border-slate-200 rounded-2xl focus:ring-4 focus:ring-blue-500/10 focus:border-blue-500 outline-none transition-all" 
+                        placeholder="EMP-xxx">
+                </div>
+
+                <button type="submit" class="w-full py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-2xl font-black shadow-lg transition-all">
+                    መመሪያ ላክ (Send Instructions)
+                </button>
+
+                <button type="button" onclick="toggleForms()" class="w-full text-sm font-bold text-slate-500 hover:text-slate-800 flex items-center justify-center gap-2">
+                    <i data-lucide="chevron-left" size="16"></i> ወደ መግቢያ ይመለሱ
+                </button>
+            </form>
+
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

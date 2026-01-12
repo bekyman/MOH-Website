@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="am">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Cafeteria Portal | Customer</title>
+
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/customer.css"/>
+</head>
+
+<body class="dashboard-bg">
+
+<!-- ================= NAVBAR ================= -->
+<nav class="navbar">
+    <div class="nav-container">
+        <div class="nav-brand">
+            <i class="fas fa-utensils"></i>
+            <span>CAFETERIA</span>
+        </div>
+
+        <div class="nav-actions">
+            <button onclick="toggleLanguage()" class="lang-btn">
+                <i class="fas fa-globe"></i>
+                <span id="langBtnText">English</span>
+            </button>
+
+            <a href="login.html" class="login-btn">
+                <i class="fas fa-sign-in-alt"></i>
+                <span class="lang-am">መግቢያ</span>
+                <span class="lang-en">Login</span>
+            </a>
+        </div>
+    </div>
+</nav>
+
+<!-- ================= HEADER ================= -->
+<header class="hero">
+    <h1>
+        <span class="lang-am">የምግብ አገልግሎት</span>
+        <span class="lang-en">Cafeteria Service</span>
+    </h1>
+    <p>
+        <span class="lang-am">ለሰራተኞች ቅናሽ፣ ለእንግዶች መደበኛ</span>
+        <span class="lang-en">Employee discount, visitor pricing</span>
+    </p>
+</header>
+
+<!-- ================= DASHBOARD SUMMARY ================= -->
+<section class="dashboard-summary">
+    <div class="summary-card">
+        <p class="label">Available Items</p>
+        <h3>7</h3>
+    </div>
+
+    <div class="summary-card">
+        <p class="label">Cart Items</p>
+        <h3 id="cartCount">0</h3>
+    </div>
+
+    <div class="summary-card">
+        <p class="label">Visitor Total</p>
+        <h3 id="dashboardVisitorTotal">0 ብር</h3>
+    </div>
+
+    <div class="summary-card highlight">
+        <p class="label">Employee Total</p>
+        <h3 id="dashboardEmployeeTotal">0 ብር</h3>
+    </div>
+</section>
+
+<!-- ================= MEAL SECTION ================= -->
+<main class="content">
+    <h2 class="section-title">
+        <span class="lang-am">የዛሬ ምግቦች</span>
+        <span class="lang-en">Today's Meals</span>
+    </h2>
+
+    <div class="meal-grid">
+        <div class="meal-card" onclick="addToCart(1)">
+            <h4>Chicken Stew</h4>
+            <p>120 ብር</p>
+            <span class="badge">Main</span>
+        </div>
+
+        <div class="meal-card" onclick="addToCart(2)">
+            <h4>Beef Stew</h4>
+            <p>150 ብር</p>
+            <span class="badge">Main</span>
+        </div>
+
+        <div class="meal-card" onclick="addToCart(3)">
+            <h4>Fasting Food</h4>
+            <p>80 ብር</p>
+            <span class="badge green">Veg</span>
+        </div>
+    </div>
+</main>
+
+<!-- ================= CART ================= -->
+<section class="cart">
+    <h2>
+        <i class="fas fa-shopping-cart"></i>
+        <span class="lang-en">Cart</span>
+        <span class="lang-am">ጋሪ</span>
+    </h2>
+
+    <div id="cartItems" class="empty">No items selected</div>
+
+    <div class="cart-footer">
+        <h3 id="totalPrice">0 ብር</h3>
+        <button onclick="checkout()" class="checkout-btn">Checkout</button>
+    </div>
+</section>
+
+<!-- ================= JS ================= -->
+<script src="js/customer.js"></script>
+</body>
+</html>
