@@ -2,8 +2,8 @@ const translations = {
     am: {
         "system-name": "የክፍያ እና የሽያጭ መቆጣጠሪያ",
         "role": "ካሸር",
-        "type-visitor": "ለጎብኝ (Visitor)",
-        "type-employee": "ለጤና ሚኒስቴር ሰራተኛ (MoH Employee)",
+        "type-visitor": "ለጎብኝ",
+        "type-employee": "ለጤና ሚኒስቴር ሰራተኛ",
         "item-burger": "ልዩ በርገር",
         "item-pizza": "ፒዛ (ትልቅ)",
         "item-soft": "ለስላሳ መጠጥ",
@@ -11,7 +11,7 @@ const translations = {
         "current-order": "የአሁኑ ትዕዛዝ",
         "empty-cart": "ምንም የተመረጠ ምርት የለም",
         "subtotal": "ድምር",
-        "subsidy-label": "የሰራተኛ ድጎማ (Subsidy)",
+        "subsidy-label": "የሰራተኛ ድጎማ",
         "total": "ጠቅላላ ሂሳብ",
         "pay-mobile": "በሞባይል",
         "pay-cash": "በጥሬ ገንዘብ",
@@ -175,3 +175,4 @@ document.addEventListener('DOMContentLoaded', () => {
     lucide.createIcons();
 
 });
+
