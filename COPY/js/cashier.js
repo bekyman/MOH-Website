@@ -1,7 +1,7 @@
 const translations = {
     am: {
         "system-name": "የክፍያ እና የሽያጭ መቆጣጠሪያ",
-        "role": "ካሳሪ",
+        "role": "ካሸር",
         "type-visitor": "ለጎብኝ (Visitor)",
         "type-employee": "ለጤና ሚኒስቴር ሰራተኛ (MoH Employee)",
         "item-burger": "ልዩ በርገር",
@@ -173,4 +173,5 @@ function closeModal() {
 // Initialize Lucide icons on page load
 document.addEventListener('DOMContentLoaded', () => {
     lucide.createIcons();
+
 });
